@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>联系方式-柯帝士牛排</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/layout.css"  />
+<link rel="stylesheet" type="text/css" href="css/menu.css"  />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/responsive.css"  />
+</head>
+<body>
+<!--Fullscreen Image Start-->
+<img id="full-screen-background-image" src="images/slider-img-2.jpg" alt="img" />
+<!--Fullscreen Image End-->
+
+<!--Logo Start-->
+<section id="logo">
+	<a href="index.html"><h1>柯帝士牛排</h1></a>
+    <h4>柯帝士牛排官方网站</h4>
+</section>
+<!--Logo End-->
+
+<!--Menu Start-->
+<nav class="menu nav_wrapper" id="myslidemenu">
+    <ul class="menu" id="jqueryslidemenu">
+        <li class="current"><a href="index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li><a href="foodmenu.html"><i class="fa fa-cutlery"></i>菜单</a>
+            <ul class="sub-menu">
+                <li><a href="cpt.html">图问列表菜单</a></li>
+                <li><a href="tabularfoodmenu.html">文字菜单</a></li>
+            </ul>
+        </li>
+        <li><a href="daily-special.html"><i class="fa fa-thumbs-o-up"></i>每日特价</a></li>
+        <li><a href="blog.html"><i class="fa fa-comments"></i>微博微信</a></li>
+        <li><a href="contact.html"><i class="fa fa-phone-square"></i>联系方式</a></li>
+    </ul>
+</nav>
+<!--Menu End-->
+
+<!--Container Start-->
+   <section  id="container-fluid">
+ <!--form start..-->
+  <div  id="container" class="contact">
+   <div  class="two-third">
+   <div class="google_map">
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d415649.54052581964!2d149.08169095!3d-35.522521749999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164cdfa09b104b%3A0xe75844385c6e7803!2sAustralian+Capital+Territory!5e0!3m2!1sen!2sin!4v1403873026143" height="450"></iframe>
+</div>
+   
+      <div class="contact_form">
+            
+            <form id="contact-form" name="contact-form" action="sendEmail.php" method="post">
+            <div id="main">
+            <div id="contact_response">
+            <div class="success">    </div>
+            </div>
+            <div class="one-third"><input type="text" placeholder="Name" size="23" id="name" name="name"></div>
+            <div class="one-third"><input type="text" size="23" id="email" placeholder="Email" name="email"></div>
+            <div class="one-third-last"><input type="text" size="23" id="subject" placeholder="Subject" name="subject"></div>
+            <div class="fullwidth">
+            <textarea placeholder="Your Message" rows="4" cols="30" id="message" name="message"></textarea>
+            </div>
+            <div>
+            <input type="submit" value="Submit" id="contact_submit" name="contact_submit" class="readmore readmore-1 readmore-1a">
+            <input type="reset" value="Clear" id="reset" name="reset" class="readmore readmore-1 readmore-1a">
+            </div>
+            </div>
+            </form>
+        </div> 
+ </div>
+<!--form end..-->
+
+  <!--sidebar  start..-->
+<aside class="one-third-last">
+<div class="sidebar">
+    <div class="address"><i class="fa fa-home"> </i></div>
+    <div class="description">
+        <a href="#"><h3>地址</h3></a>
+        <p><span> 嘉兴市余新镇 五星路266-268号</span></p>
+    </div>
+</div>
+<div class="sidebar"> 
+    <div class="address"><i class="fa fa-phone"> </i></div>
+    <div class="description">
+        <a href="#"><h3>联系方式</h3></a>
+        <p>+86 13136201415  陈先生<br />
+      
+        </p>
+    </div>
+</div>
+
+<div class="sidebar"> 
+    <div class="address"><i class="fa fa-envelope"> </i></div>
+    <div class="description">
+        <a href="#"><h3>反馈邮箱</h3></a>
+        <p>
+        921053085@qq.com<br />
+        </p>
+    </div>
+</div>
+<iframe height="250" src="http://www.youtube.com/embed/LWyefb8n5g4?rel=0&amp;showinfo=0&amp;controls=0&amp;HD=1" ></iframe>
+</aside>
+<!--sidebar End-->
+</div>
+ </section>
+<!--Container End-->
+
+<!--Footer Start-->
+<footer>
+	<div class="one-third">
+    </div>
+    <div class="one-third">
+    	<p class="copy-right">©版权所有 柯帝士牛排</p>
+    </div>
+    <div class="one-third-last">
+    	<ul>
+        	<li><i class="fa fa-twitter"></i></li>
+            <li><i class="fa fa-facebook"></i></li>
+            <li><i class="fa fa-rss"></i></li>
+            <li><i class="fa fa-youtube"></i></li>
+            <li><i class="fa fa-linkedin"></i></li>
+        </ul>
+    </div>   
+</footer>
+<!--Footer End-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/contact.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+</body>
+</html>
