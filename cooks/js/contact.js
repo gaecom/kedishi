@@ -105,7 +105,7 @@ jQuery(function() {
                     if(data.code==1)
                     {
                         resetForm($("#contact-form"));
-                        jQuery('div#response').html("预订成功").css({'color':'#393'}).slideDown('fast',function(){
+                        jQuery('div#response').html("预订成功").css({'color':'#393','font-size':'2.5em'}).slideDown('fast',function(){
 
                             setTimeout(function(){jQuery('div#response').slideUp('fast')},3000);
                         });
