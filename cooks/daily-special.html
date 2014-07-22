@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
 <title>每日特惠|每日促销|每日优惠-柯帝士牛排</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css"  media="screen" />
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
@@ -12,6 +13,12 @@
 <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="css/Isotope.css" />
 <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+<link href="css/dtpicker.min.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="css/dtpicker-ltie9.min.css" />
+  <script type="text/javascript" src="js/dtpicker-ltie9.min.js"></script>
+ <![endif]-->
 <link rel="stylesheet" type="text/css" href="style.css"   />
 <link rel="stylesheet" type="text/css" href="css/responsive.css"  />
 <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
@@ -40,8 +47,10 @@
             </ul>
         </li>
         <li><a href="daily-special.html"><i class="fa fa-thumbs-o-up"></i>每日特价</a></li>
-        <li><a href="blog.html"><i class="fa fa-comments"></i>微博微信</a></li>
-        <li><a href="contact.html"><i class="fa fa-phone-square"></i>联系方式</a></li>
+        <li><a href="blog.html"><i class="fa fa-comments"></i>柯帝士动态</a>
+
+        </li>
+        <li><a href="contact.html"><i class="fa fa-phone-square"></i>联系反馈</a></li>
     </ul>
 </nav>
 <!--Menu End-->
@@ -107,31 +116,31 @@
  
  <!--contact form start..-->
  <div  class="one-half">
-       <h2>BOOK A TABLE</h2>
-  <form id="contact-form" name="contact-form" action="reservation.php" method="post">
+       <h2>预订</h2>
+  <form id="contact-form" name="contact-form" action="book.php" method="post">
 
           <div id="main">
-            <div id="response">
+            <div id="response" style="display: none">
           </div>
-            <p class="one-half"><input type="text" placeholder="Name" size="23" id="res_name" name="res_name"></p>
-            <p class="one-half-last"><input type="text" size="23" id="res_email" placeholder="Email" name="res_email"></p>
-            <p class="one-third"> <input type="text" placeholder="Phone" size="23" id="res_phone" name="res_phone"></p>
-            <p class="one-third"><input type="text" placeholder="Number Of Persons" size="23" id="res_persons" name="res_persons"></p>
-            <p class="one-third-last"><input type="text" value="" placeholder="Reservation On" id="res_date" name="res_date" class="res_date hasDatepicker"></p>
-            <p class="one-third"><input type="text" size="23" id="res_time" placeholder="Time" name="res_time"></p>
-            <p class="two-third-last"><input type="text" size="23" id="res_subject" placeholder="Subject" name="res_subject"></p>
-            <p class="fullwidth"><textarea placeholder="Your Message" rows="4" cols="30" id="res_message" name="res_message"></textarea></p>
-            <p><input type="submit" value="Mail Us" id="submit" name="submit" class="readmore readmore-1 readmore-1a"> 
-            <input type="reset" value="Clear" id="reset" name="reset" class="readmore readmore-1 readmore-1a">
+            <p class="one-half"><input type="text" placeholder="姓名" size="23" id="name" name="name"></p>
+            <p class="one-half-last"><input type="email" size="23" id="email" placeholder="邮件" name="email"></p>
+            <p class="one-third"> <input type="tel" placeholder="手机号" size="23" id="mobile" name="mobile"></p>
+            <p class="one-third"><input type="number" min="1" max="100" placeholder="预订人数" size="23" id="num" name="num"></p>
+            <p class="one-third-last"><input type="text" value="" placeholder="预订时间" id="datetime" name="datetime" data-field="datetime" readonly class="res_date hasDatepicker"> </p>
+        
+            <p class="fullwidth"><textarea placeholder="备注" rows="4" cols="30" id="message" name="message"></textarea></p>
+            <p><input type="submit" value="发送" id="submit" name="submit" class="readmore readmore-1 readmore-1a"> 
+            <input type="reset" value="清除" id="reset" name="reset" class="readmore readmore-1 readmore-1a pull-right">
           </p>
+
         </div>
         </form>
  </div>
  <!--contact form end..-->
- 
+   <div id="dtBox"></div>
  <!--sidebar start-->
 <aside class="one-half-last">
-    <h2>WHAT OUR CLIENT SAYS...</h2>
+    <h2>客户评价</h2>
 <div class="testimonial_wrapper testmonial" >
     <img src="images/team01.jpg" alt="Our Client" class="alignleft thumb-img" />
     <div class="description">
@@ -180,13 +189,65 @@
     </div>   
 </footer>
 <!--Footer End-->
+<script type="text/javascript" src="js/modernizr.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.easing.min.js"></script>
 <script type="text/javascript" src="js/owl.carousel.js"></script>
 <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script>
+    var BrowserDetect = 
+{
+    init: function () 
+    {
+        this.browser = this.searchString(this.dataBrowser) || "Other";
+        this.version = this.searchVersion(navigator.userAgent) ||       this.searchVersion(navigator.appVersion) || "Unknown";
+    },
+
+    searchString: function (data) 
+    {
+        for (var i=0 ; i < data.length ; i++)   
+        {
+            var dataString = data[i].string;
+            this.versionSearchString = data[i].subString;
+
+            if (dataString.indexOf(data[i].subString) != -1)
+            {
+                return data[i].identity;
+            }
+        }
+    },
+
+    searchVersion: function (dataString) 
+    {
+        var index = dataString.indexOf(this.versionSearchString);
+        if (index == -1) return;
+        return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+    },
+
+    dataBrowser: 
+    [
+        { string: navigator.userAgent, subString: "Chrome",  identity: "Chrome" },
+        { string: navigator.userAgent, subString: "MSIE",    identity: "IE" },
+        { string: navigator.userAgent, subString: "Firefox", identity: "Firefox" },
+        { string: navigator.userAgent, subString: "Safari",  identity: "Safari" },
+        { string: navigator.userAgent, subString: "Opera",   identity: "Opera" }
+    ]
+
+};
+BrowserDetect.init();
+// Modernizr.load({
+//   test: (BrowserDetect.browser==='IE' && BrowserDetect.version<9),
+//   yep : 'js/dtpicker.min.js',
+//   nope: 'js/dtpicker-ltie9.min.js'
+// });
+</script>
+
+<script type="text/javascript" src="js/dtpicker.js"></script>
 <script type="text/javascript" src="js/contact.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+
 <script>
+
 jQuery(document).ready(function($) {
    'use strict';
     

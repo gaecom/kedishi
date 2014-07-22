@@ -2,101 +2,117 @@ jQuery(function() {
 //----------------------------------------------------
 // Reservation Form 
 //----------------------------------------------------
-    jQuery('#main input#submit').live("click",function(e) { 
+//
+    var resetForm=function(jqForm){
+
+        jqForm.find(':input')
+            .not(':button, :submit, :reset, :hidden')
+            .val('')
+            .removeAttr('checked')
+            .removeAttr('selected');
+    }
+	if($("#dtBox").size()>0){
+			   $("#dtBox").DateTimePicker({
+	   		dateTimeFormat:"yyyy-MM-dd HH:mm:ss",
+	   		shortDayNames:['周日','周一','周二','周三','周四','周五','周六'],
+	   		shortMonthNames:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+	   		fullMonthNames:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+	   		titleContentDate:'设置日期',
+	   		titleContentTime:'设置时间',
+	   		titleContentDateTime:'选择日期时间',
+	   		setButtonContent:'设置',
+	   		clearButtonContent:'清除'
+
+	   });
+	}
+
+
+    jQuery('#main input#submit').on("click",function(e) { 
 		e.preventDefault();
-		var res_name = jQuery('input#res_name').val();
-		var res_email = jQuery('input#res_email').val();
-		var res_message = jQuery('textarea#res_message').val();
+		var res_name = $.trim(jQuery('input#name').val());
+		var res_email = $.trim(jQuery('input#email').val());
+		var res_message = $.trim(jQuery('textarea#message').val());
 		var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
 		var number_validate =  new RegExp( /^[0-9-+]+$/ );
-		var res_persons = jQuery('input#res_persons').val();
-		var res_phone = jQuery('input#res_phone').val();
-		var res_date = jQuery('input#res_date').val();
-		var res_time = jQuery('input#res_time').val();
-		var res_subject = jQuery('input#res_subject').val();
-		var res_email_id = jQuery('input#res_email_id').val();
+		var res_persons = $.trim(jQuery('input#num').val());
+		var mobile = $.trim(jQuery('input#mobile').val());
+		var res_datetime = $.trim(jQuery('input#datetime').val());
 		var hasError = false;
 		if(res_name=='')
 		{
-			jQuery('[name="res_name"]').addClass('vaidate_error');
+			jQuery('[name="name"]').addClass('vaidate_error');
 			hasError = true;
 		}else{
-			jQuery('[name="res_name"]').removeClass('vaidate_error');
+			jQuery('[name="name"]').removeClass('vaidate_error');
 		}
 		if(res_email=='')
 		{
-			jQuery('[name="res_email"]').addClass('vaidate_error');
+			jQuery('[name="email"]').addClass('vaidate_error');
 			hasError = true;
 		}else{
 		if (!pattern.test(res_email)) {
-			jQuery('[name="res_email"]').addClass('vaidate_error');
+			jQuery('[name="email"]').addClass('vaidate_error');
 			hasError = true;
 		}else{
-			jQuery('[name="res_email"]').removeClass('vaidate_error');
+			jQuery('[name="email"]').removeClass('vaidate_error');
 		}
 		}
 		
-		if(res_time=="")
+		if(res_datetime=="" || isNaN(Date.parse(res_datetime)))
 		 {
-			 jQuery('[name="res_time"]').addClass('vaidate_error');
+
+			 $("#datetime").addClass('vaidate_error');
 			 hasError = true;
 		 }else{
-			 jQuery('[name="res_time"]').removeClass('vaidate_error');
+			 $("#datetime").removeClass('vaidate_error');
 			 }
-		if(res_date=="")
+		
+		if(mobile=="")
 		 {
-			 jQuery('[name="res_date"]').addClass('vaidate_error');
+			 jQuery('[name="mobile"]').addClass('vaidate_error');
 			 hasError = true;
 		 }else{
-			 jQuery('[name="res_date"]').removeClass('vaidate_error');
-			 }
-		if(res_phone=="")
-		 {
-			 jQuery('[name="res_phone"]').addClass('vaidate_error');
-			 hasError = true;
-		 }else{
-		 	if( !number_validate.test(res_phone) ){
-		 		jQuery('[name="res_phone"]').addClass('vaidate_error');
+		 	if( !/^1[3|5|8|7]\d{9}$/.test(mobile) ){
+		 		jQuery('[name="mobile"]').addClass('vaidate_error');
 		 	}else{
-		 		jQuery('[name="res_phone"]').removeClass('vaidate_error');
+		 		jQuery('[name="mobile"]').removeClass('vaidate_error');
 		 	}
 			 }
 		if(res_persons=="")
 		 {
-			 jQuery('[name="res_persons"]').addClass('vaidate_error');
+			 jQuery('[name="num"]').addClass('vaidate_error');
 			 hasError = true;
 		 }else{
 		 	if( !number_validate.test(res_persons) ){
-		 		jQuery('[name="res_persons"]').addClass('vaidate_error');
+		 		jQuery('[name="num"]').addClass('vaidate_error');
 		 	}else{
-			 jQuery('[name="res_persons"]').removeClass('vaidate_error');
+			 jQuery('[name="num"]').removeClass('vaidate_error');
 			 }	
 			 }					 
 		if(res_message=="")
 		 {
-			 jQuery('[name="res_message"]').addClass('vaidate_error');
+			 jQuery('[name="message"]').addClass('vaidate_error');
 			 hasError = true;
 		 }else{
-			 jQuery('[name="res_message"]').removeClass('vaidate_error');
+			 jQuery('[name="message"]').removeClass('vaidate_error');
 			 }
-		if(res_subject=="")
-		 {
-			 jQuery('[name="res_subject"]').addClass('vaidate_error');
-			 hasError = true;
-		 }else{
-			 jQuery('[name="res_subject"]').removeClass('vaidate_error');
-		}	 		 
+ 		 
 		if(hasError) { return; }
 		else {	
-			jQuery.ajax({
-				type: 'post',
-				url: 'reservation.php',
-				data: '&res_name=' + res_name + '&res_email=' + res_email  +'&res_message=' + res_message + '&res_phone=' + res_phone + '&res_persons=' + res_persons +'&res_date='+ res_date +'&res_time=' + res_time + '&res_subject=' + res_subject,
+			jQuery.post('book.php',$("#contact-form").serialize(),
+				function(results) {
+                    var data= $.parseJSON(results);
+                    if(data.code==1)
+                    {
+                        resetForm($("#contact-form"));
+                        jQuery('div#response').html("预订成功").css({'color':'#393'}).slideDown('fast',function(){
 
-				success: function(results) {	
-					jQuery('div#response').html(results).css('display', 'block');		
+                            setTimeout(function(){jQuery('div#response').slideUp('fast')},3000);
+                        });
+                    }
+
 				}
-			}); // end ajax
+			); // end ajax
 		}
 		});
 
@@ -109,8 +125,8 @@ jQuery(function() {
 		var email = jQuery('input#email').val();
 		var message = jQuery('textarea#message').val();
 		var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
-		var subject = jQuery('input#subject').val();
 		var siteemail = jQuery('input#siteemail').val();
+		var mobile=$.trim($('#mobile'));
 		var hasError = false;
 		 if(name=='')
 		 {
@@ -132,7 +148,15 @@ jQuery(function() {
 				 jQuery('[name="email"]').removeClass('vaidate_error');
 				 }
 			 }
+		if(mobile || !/^1[3|5|8|7]\d{9}$/.test(mobile)){
 
+ 			jQuery('[name="mobile"]').addClass('vaidate_error');
+				 hasError = true;
+		}
+		else {
+
+			 jQuery('[name="mobile"]').removeClass('vaidate_error');
+		}
 		if(message=="")
 			 {
 				 jQuery('[name="message"]').addClass('vaidate_error');
@@ -140,13 +164,7 @@ jQuery(function() {
 			 }else{
 				 jQuery('[name="message"]').removeClass('vaidate_error');
 			}
-		if(subject=="")
-			 {
-				 jQuery('[name="subject"]').addClass('vaidate_error');
-				 hasError = true;
-			 }else{
-				 jQuery('[name="subject"]').removeClass('vaidate_error');
-				 }
+		
         if(hasError) { return; }
 		else {		
 				jQuery.ajax({
