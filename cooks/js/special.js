@@ -10,7 +10,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
  *
  * TERMS OF USE - jQuery Easing
  * 
- * Open source under the BSD License. 
+ * Open source under the BSD License.
  * 
  * Copyright �� 2008 George McGinley Smith
  * All rights reserved.
