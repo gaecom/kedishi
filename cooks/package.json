@@ -1,0 +1,51 @@
+{
+  "name": "commonvendor",
+  "title": "common include js",
+  "description": "通用的第三方js",
+  "version": "1.0.0",
+  "homepage": "http://www.niuspace.com/",
+  "author": {
+    "name": "ifa6",
+    "url": "http://www.niuspace.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gaecom/"
+  },
+  "keywords": [
+    "common js",
+    "footer",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/gaecom/"
+  },
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-closurecompiler": "~0.9.9",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-transcoding": "~0.1.1",
+    "grunt-text-replace": "~0.3.9",
+    "grunt-contrib-clean": "~0.5.0",
+
+    "assemble-less": "0.7.0",
+    "grunt-contrib-htmlmin": "~0.3.0",
+    "grunt-processhtml": "~0.3.3",
+    "grunt-contrib-less": "~0.11.4",
+    "connect-livereload": "~0.4.0",
+    "assemble": "~0.4.42",
+      "mocha":"~1.21.4",
+      "karma-cli":"0.0.4",
+      "grunt-karma":"0.9.0",
+      "grunt-contrib-jshint": "",
+    "grunt-contrib-watch": "~0.6.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "matchdep": "~0.3.0",
+    "load-grunt-tasks": "~0.6.0"
+  }
+}
