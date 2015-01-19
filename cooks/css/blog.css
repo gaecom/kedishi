@@ -2,9 +2,9 @@
 /* CSS Document */
 
 .blog_img{
-	position:relative;
-	display:block;
-	margin-bottom:22px;
+    position:relative;
+    display:block;
+    margin-bottom:22px;
 
 }
 
@@ -14,26 +14,26 @@
     position: relative;
 }
 .meta_desc{
-	font-size:13px;
-	color:#666;
-	display:block;
-	margin:10px 0px 12px;
-	padding:10px;
-	background-color: rgba(204, 204, 204, 0.3);
+    font-size:13px;
+    color:#666;
+    display:block;
+    margin:10px 0px 12px;
+    padding:10px;
+    background-color: rgba(204, 204, 204, 0.3);
 border: 1px solid rgba(204, 204, 204, 0.2);
 }
 span.meta_desc span {
-	padding:8px;
+    padding:8px;
 }
 .blog_post_info h2{
-	margin-bottom:0px;
+    margin-bottom:0px;
 }
 .meta_desc i{
-	color:#063;
+    color:#063;
 }
 .meta_desc span i{
-	margin-right:8px;
-	
+    margin-right:8px;
+    
 }
 .fa {
 display: inline-block;
@@ -50,26 +50,26 @@ transition: all 0.4s ease-out 0s;
 display: inline-block;
 }
 a.readmore:hover{
-	background:none;
-	color:#339933!important;
+    background:none;
+    color:#339933!important;
 }
 a.readmore{
-	 background:none repeat scroll 0% 0% #393;
+     background:none repeat scroll 0% 0% #393;
     color: #FFF !important;
-	font-family:Tahoma, Geneva, sans-serif;
-	font-size:14px;
-	letter-spacing:1.3px;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:14px;
+    letter-spacing:1.3px;
 }
 .more_link .readmore{
-	display:table;
-	margin-top:20px;
+    display:table;
+    margin-top:20px;
 }
 .standard_blog{
-	margin-bottom:50px;
+    margin-bottom:50px;
 }
 article.standard_blog:last-child{
-	margin-bottom:0px;}
-	#sidebar #search_form input {
+    margin-bottom:0px;}
+    #sidebar #search_form input {
     color: #757575;
     background-color: rgba(127, 127, 127, 0.1);
     border-color: rgba(127, 127, 127, 0.2);
@@ -80,7 +80,7 @@ article.standard_blog:last-child{
     margin-bottom: 40px;
     overflow: hidden;
 }
-	
+    
 #search_form input {
     border: 1px solid rgba(204, 204, 204, 0.2);
     border-radius: 3px;
@@ -89,9 +89,9 @@ article.standard_blog:last-child{
     width: 80%;
 }
 .widget_container ul{
-	list-style-type:none;
-	margin:0px;
-	padding:0px;
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
 }
 .widget_container ul li {
     background-image: url('../images/list_arrow.png');
@@ -106,20 +106,20 @@ article.standard_blog:last-child{
     width: 93%;
 }
 .widget_container ul li:last-child{
-	border-bottom:0px;
-	padding-bottom:0px;
+    border-bottom:0px;
+    padding-bottom:0px;
 }
 .widget_container li a{
-	color: #353535!important;
+    color: #353535!important;
 }
 #sidebar h3{
-	margin-bottom:10px;
+    margin-bottom:10px;
 }
 .blog_img img{
-	margin-bottom:22px;
+    margin-bottom:22px;
 }
 .content_box p{
-	padding-bottom:22px;
+    padding-bottom:22px;
 }
 .content_box blockquote {
     -moz-border-bottom-colors: none;
@@ -154,32 +154,32 @@ article.standard_blog:last-child{
     white-space: pre-wrap;
 }
 .comments-list{
-	white-space:normal;
-	margin-bottom:32px;
+    white-space:normal;
+    margin-bottom:32px;
 }
 .content_box ul{
-	list-style:disc outside none;
-	margin:0px  0px 18px 18px;
+    list-style:disc outside none;
+    margin:0px  0px 18px 18px;
 }
 .content_box ul li{
-	font-size:14px;
+    font-size:14px;
 }
 .comment-meta{
-	margin-bottom:14px!important;
+    margin-bottom:14px!important;
 }
 .comments-list a{
-	color:#8c8c8c;
-	font-style:normal;
-	font-family:Tahoma, Geneva, sans-serif;
+    color:#8c8c8c;
+    font-style:normal;
+    font-family:Tahoma, Geneva, sans-serif;
 }
 .comments-list cite  a{
-	color:#333;
+    color:#333;
 }
 .reply{
-	margin-top:8px;
+    margin-top:8px;
 }
 .comments-list cite{
-	color: #333;
+    color: #333;
     font-size: 17px;
     font-style: normal;
     text-transform: uppercase;
